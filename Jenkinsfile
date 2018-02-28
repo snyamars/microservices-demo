@@ -30,7 +30,7 @@ node {
     stage('packaging') {
         //sh "./mvnw package -Pprod -DskipTests"
         sh "/usr/bin/mvn package -Pprod -DskipTests"
-        archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
+        archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
     }
 
     // Uncomment the following block to add Sonar analysis.
