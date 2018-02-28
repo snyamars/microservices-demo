@@ -8,7 +8,7 @@ WORKDIR .
 ADD ./target/customer-data-service-0.0.1-SNAPSHOT.war /app.war
 
 VOLUME /tmp
-EXPOSE 8090
+EXPOSE 2222
 CMD echo "The application will start in ${JHIPSTER_SLEEP}s..." && \
     sleep ${JHIPSTER_SLEEP} && \
     java -Dspring.profiles.active=prod  -jar /app.war
