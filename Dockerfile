@@ -10,4 +10,4 @@ ADD ./target/microservice-demo-1.1.0.RELEASE.jar /microservice-demo-1.1.0.RELEAS
 VOLUME /tmp
 EXPOSE 2222 3333
 CMD echo "The application will start in ${JHIPSTER_SLEEP}s..." && \
-        java -jar /microservice-demo-1.1.0.RELEASE.jar
+        java -jar /microservice-demo-1.1.0.RELEASE.jar web
