@@ -50,24 +50,24 @@ node {
     sh 'docker logout'
    }
     
-    /*
+    
     stage 'notifyKubernetes'
      try{
-      sh "kubectl delete deployment microservice-demo"
+      sh "kubectl delete deployment microservice-demo-accounts"
      }catch(e){
       println("no prior deployment exists")
      }
      try{
-          sh "kubectl delete svc microservice-demo"   
+          sh "kubectl delete svc microservice-demo-accounts"   
      }catch(e){
       println("no prior service exists")
      }
     
    sh "sleep 3s"
-   sh "kubectl run --image=snyamars007/microservice-demo:latest microservice-demo  --port=2222"
+   sh "kubectl run --image=snyamars007/microservice-demo-accounts:latest microservice-demo-accounts  --port=2222"
    //sh "kubectl expose deployment customer-data-service1 --type=NodePort "
-    sh "kubectl expose deployment microservice-demo"
+    sh "kubectl expose deployment microservice-demo-accounts"
    // sh "kubectl create -f customer-data-service1.yaml"
     //Test check...
-  */
+  
 }
