@@ -12,8 +12,8 @@ spring:
           discovery:
              healthCheckPath: /accounts/health
              healthCheckInterval: 15s
-             hostname: 192.168.1.102
-             port: 2222
+             hostname: ec2-35-153-35-158.compute-1.amazonaws.com
+             port: 80
              prefer-ip-address: false
           host: ec2-35-172-8-63.compute-1.amazonaws.com
           #host: localhost
