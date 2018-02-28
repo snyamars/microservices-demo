@@ -40,7 +40,7 @@ node {
         }
     }*/
    
-    /*
+    
     stage ('docker build'){
       withCredentials([[$class: "UsernamePasswordMultiBinding", usernameVariable: 'DOCKERHUB_USER', passwordVariable: 'DOCKERHUB_PASS', credentialsId: 'dockerhub_id']]) {
       sh 'docker login --username $DOCKERHUB_USER --password $DOCKERHUB_PASS'
@@ -50,7 +50,7 @@ node {
     sh 'docker logout'
    }
     
-    
+    /*
     stage 'notifyKubernetes'
      try{
       sh "kubectl delete deployment microservice-demo"
