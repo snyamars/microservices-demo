@@ -45,7 +45,7 @@ node {
       withCredentials([[$class: "UsernamePasswordMultiBinding", usernameVariable: 'DOCKERHUB_USER', passwordVariable: 'DOCKERHUB_PASS', credentialsId: 'dockerhub_id']]) {
       sh 'docker login --username $DOCKERHUB_USER --password $DOCKERHUB_PASS'
     }
-    def serverImage = docker.build('snyamars007/microservice-demo')
+    def serverImage = docker.build('snyamars007/microservice-demo-accounts')
     serverImage.push('latest')
     sh 'docker logout'
    }
