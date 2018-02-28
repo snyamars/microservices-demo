@@ -44,7 +44,7 @@ node {
       withCredentials([[$class: "UsernamePasswordMultiBinding", usernameVariable: 'DOCKERHUB_USER', passwordVariable: 'DOCKERHUB_PASS', credentialsId: 'dockerhub_id']]) {
       sh 'docker login --username $DOCKERHUB_USER --password $DOCKERHUB_PASS'
     }
-    def serverImage = docker.build('snyamars007/customer-data-service')
+    def serverImage = docker.build('snyamars007/microservice-demo')
     serverImage.push('latest')
     sh 'docker logout'
    }
@@ -52,20 +52,20 @@ node {
     
     stage 'notifyKubernetes'
      try{
-      sh "kubectl delete deployment customer-data-service1"
+      sh "kubectl delete deployment microservice-demo"
      }catch(e){
       println("no prior deployment exists")
      }
      try{
-          sh "kubectl delete svc customer-data-service1"   
+          sh "kubectl delete svc microservice-demo"   
      }catch(e){
       println("no prior service exists")
      }
     
    sh "sleep 3s"
-   sh "kubectl run --image=snyamars007/customer-data-service:latest customer-data-service1  --port=8090"
+   sh "kubectl run --image=snyamars007/microservice-demo:latest microservice-demo  --port=2222"
    //sh "kubectl expose deployment customer-data-service1 --type=NodePort "
-    sh "kubectl expose deployment customer-data-service1"
+    sh "kubectl expose deployment microservice-demo"
    // sh "kubectl create -f customer-data-service1.yaml"
     //Test check...
 
