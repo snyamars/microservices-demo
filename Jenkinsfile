@@ -40,7 +40,7 @@ node {
         }
     }*/
    
-   /*** 
+   /***/ 
     stage ('docker build'){
       withCredentials([[$class: "UsernamePasswordMultiBinding", usernameVariable: 'DOCKERHUB_USER', passwordVariable: 'DOCKERHUB_PASS', credentialsId: 'dockerhub_id']]) {
       sh 'docker login --username $DOCKERHUB_USER --password $DOCKERHUB_PASS'
@@ -69,5 +69,5 @@ node {
     sh "kubectl expose deployment microservice-demo-accounts"
    // sh "kubectl create -f customer-data-service1.yaml"
     //Test check...
-  ***/
+  /***/
 }
